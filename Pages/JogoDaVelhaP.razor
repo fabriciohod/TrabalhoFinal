@@ -1,0 +1,36 @@
+@page "/JogoDaVelha"
+@using BlazorApp1.Models.JogoDaVelha;
+<head><link rel="stylesheet" href="css/JogoDaVelhaStyle.css"/></head>
+<body>
+  <main>
+      <div class="Tabuleiro">
+        <div class="Quadrado" @onclick="e =>GameManager(0,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(0,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(0,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,2]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,2]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,2]</h3></div>
+      </div>
+    @if(jogoDaVelha.oJogoAcabou)
+    {
+      if(!jogoDaVelha.TurnoDo_X) AlertBox("O jogador X ganhou");
+      else AlertBox("O jogador O ganhou");
+    }
+    <h3 style="text-align: center; font-size: 2rem">Turno do: @(jogoDaVelha.TurnoDo_X is true ? "X" : "O") </h3>
+  </main>
+</body>
+  
+@code
+{
+  string alerta;
+      private JogoDaVelha jogoDaVelha = new JogoDaVelha();
+      private void GameManager(int linha, int coluna)
+      {
+          jogoDaVelha.MarcarOndeFoiClicado(linha, coluna);
+          jogoDaVelha.VerificarVitoria();
+      }
+      async Task AlertBox(string texto) => alerta = await JSruntime.InvokeAsync<string>("AlertBox", texto);
+}

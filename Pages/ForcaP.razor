@@ -1,0 +1,40 @@
+@page "/Forca"
+@using BlazorApp1.models.forca;
+<main>
+    <body @onkeyup="e => VerificarInputEvent(e)">    
+        <div class ="ImagemForca">
+            <img src="@forca.BonecoDaForca[forca.IndexDoBoneco]">
+        </div>
+        <input type="char" @bind="input"  >
+
+         <div class="SeletorDeDificuldade">
+            <label>Selecione um tema</label>
+                 <select @bind="tema">
+                    <option value='comida' @onclick="e => forca.EscolherTema(tema)">comida</option>
+                    <option value='jogos' @onclick="e => forca.EscolherTema(tema)">jogos</option>
+                </select>
+        </div>
+        
+        <div class="PalavraSecreta">
+        @if (forca.Dica != null)
+        {
+            foreach (var item in forca.Dica){ <span>@item</span> }
+        }
+        </div>
+        <p>@forca.TextoDeFimDejogo</p>
+    </body>
+</main>
+
+@code{
+    private Forca forca = new Forca();
+    private char input;
+    private string tema = "";
+    async Task VerificarInputEvent(KeyboardEventArgs e)
+    {
+        await Task.Run(() =>
+        {
+            if (e.Key == "Enter") forca.VerificarResposta(input);
+            forca.VerificarFimDeJogo();
+        });
+    }
+}

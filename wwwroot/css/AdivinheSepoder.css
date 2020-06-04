@@ -1,0 +1,41 @@
+:root{
+    font-family: 'Cuprum', sans-serif;
+}
+.ContadorDeTentativas{
+    text-align: center;
+}
+.SeletorDeDificuldade{
+    text-align: center;
+}
+.AdivinheSePoder{
+    display: flex;
+    justify-content: center;
+}
+.AdivinheSePoder body{
+    justify-content: center;
+    margin: 20rem;
+    margin-bottom: 10rem;
+}
+.AdivinheSePoder .DicaDaSenha{
+    text-align: center;
+}
+
+.AdivinheSePoder .TextoResultado{
+    text-align: center;
+}
+.table-bordered{
+    width: 100%;
+    max-width: 300px;
+    table-layout: fixed ;
+    background-image: linear-gradient(#37373a, #23232e);
+    border:1px solid white;
+    margin-left:auto;
+    margin-right:auto;
+}
+.table-bordered td{
+    width: 11%;
+   text-align: center;
+   color: #df4adf;
+   cursor: pointer;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

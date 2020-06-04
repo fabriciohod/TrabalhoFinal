@@ -1,0 +1,114 @@
+@page "/AdivinheSePoder"
+@using BlazorApp1.Models.AdivinheSePoder
+@using Microsoft.AspNetCore.Components.Web
+@using System.Linq
+<main>
+    <head><link rel="stylesheet" href="css/AdivinheSepoder.css"></head>
+    <div class="AdivinheSePoder"@onkeyup="(e) => VerificarSenha(e)">
+        <body>
+            <p class="TextoResultado">@(adivinheSePoder.Tentativas <= 0 ? "Acabou as suas tentativas 😭, boa sorte na proxima vez" : adivinheSePoder.Resulatado)</p>
+            <div class="DicaDaSenha">
+                    @if(adivinheSePoder.Senha != null)
+                    {
+                        dicaSenha = adivinheSePoder.QuantidadeDeDigitosNaSenha();
+                        <span>@adivinheSePoder.QuantidadeDeDigitosNaSenha() </span>
+                    }else
+                    {
+                        <span>@textoException</span>
+                    }
+
+            </div>
+            <input id="inputTextBox" type="text"  maxlength="10" @bind="input" class="form-control" aria-disabled="true" disabled = "@(adivinheSePoder.Tentativas <=0 ? true : false )">
+            
+            <table id=NumPad class="table table-bordered">
+                <tbody>
+                    <tr>
+                    <td scope="row" @onclick="e => NumPadValores(1)">1</td>
+                    <td @onclick="e => NumPadValores(2)">2</td>
+                    <td @onclick="e => NumPadValores(3)">3</td>
+                    </tr>
+                    <tr>
+                    <td scope="row"@onclick="e => NumPadValores(4)">4</td>
+                    <td @onclick="e => NumPadValores(5)">5</td>
+                    <td @onclick="e => NumPadValores(6)">6</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" @onclick="e => NumPadValores(7)">7</td>
+                    <td @onclick="e => NumPadValores(8)">8</td>
+                    <td @onclick="e => NumPadValores(9)">9</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" @onclick="LimparInput">Delete</td>
+                    <td @onclick="e => NumPadValores(0)">0</td>
+                    <td @onclick="VerificarSenha"> Enter</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="SeletorDeDificuldade">
+                <label>Selecione a Dificuldade</label>
+                    <select @bind="dificuldade">
+                    <option value='F' @onclick="e => adivinheSePoder.GerarSenha(dificuldade)">Facil</option>
+                    <option value='M' @onclick="e => adivinheSePoder.GerarSenha(dificuldade)">Medio</option>
+                    <option value='D' @onclick="e => adivinheSePoder.GerarSenha(dificuldade)">Dificil</option>
+                    <option value='B' @onclick="e => adivinheSePoder.GerarSenha(dificuldade)">O Brabo</option>
+                    </select>
+            </div>
+
+            <div class="ContadorDeTentativas">
+                <label>Numero de tentativas: </label>
+                <span>@adivinheSePoder.Tentativas</span>
+            </div>
+
+        </body>
+    </div>
+</main>
+@code{
+    private AdivinheSePoder adivinheSePoder = new AdivinheSePoder();
+    private string input = "";
+    private string dicaSenha;
+    private string textoException = "";
+    private char dificuldade;
+    private void VerificarSenha(KeyboardEventArgs eventArgs)
+    {
+        try
+        {
+            Console.Write($"senha: {adivinheSePoder.SenhaComoString()}\n input: {input}");
+            if (eventArgs.Key == "Enter") adivinheSePoder.VerificarSenha(input);
+            if (eventArgs.Key == "Delete") input = "";
+
+        }
+        catch (System.NullReferenceException)
+        {
+            textoException = "Selecio ne uma dificuldade";
+            return;
+        }
+    }
+    private void VerificarSenha()
+    {
+        try
+        {
+            adivinheSePoder.VerificarSenha(input);
+        }
+        catch (System.NullReferenceException)
+        {
+            textoException = "Selecio ne uma dificuldade";
+            return;
+        }
+    }
+    private void LimparInput() => input = "";
+    private void NumPadValores(int valor)
+    {
+        try
+        {
+            input += valor.ToString();
+            Console.WriteLine(" senha: " + adivinheSePoder.SenhaComoString() + $"\n tamanho da senha: " + adivinheSePoder.Senha.Length + " \n input: " + input);
+        }
+        catch (System.Exception)
+        {
+            textoException = "Selecio ne uma dificuldade";
+            return;
+        }
+    }
+    public async Task SetFocus() => await JSruntime.InvokeVoidAsync("focusElement");
+}
