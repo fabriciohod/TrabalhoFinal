@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlazorApp1.Scripts;
+using TrabalhoFinal.Scripts;
 
-namespace BlazorApp1.models.forca
+namespace TrabalhoFinal.models.forca
 {
     public class Forca
     {

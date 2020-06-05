@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace BlazorApp1.Scripts
+namespace TrabalhoFinal.Scripts
 {
     public class CoiasUteis
     {

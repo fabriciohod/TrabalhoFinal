@@ -1,6 +1,6 @@
 using System;
-using BlazorApp1.Scripts;
-namespace BlazorApp1.Models.AdivinheSePoder
+using TrabalhoFinal.Scripts;
+namespace TrabalhoFinal.Models.AdivinheSePoder
 {
     public class AdivinheSePoder
     {

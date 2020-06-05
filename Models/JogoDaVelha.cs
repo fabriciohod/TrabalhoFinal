@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using BlazorApp1.Scripts;
-namespace BlazorApp1.Models.JogoDaVelha
+using TrabalhoFinal.Scripts;
+namespace TrabalhoFinal.Models.JogoDaVelha
 {
     public class JogoDaVelha
     {
