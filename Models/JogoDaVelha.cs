@@ -39,7 +39,7 @@ namespace BlazorApp1.Models.JogoDaVelha
         {
             for (int i = 0; i < matriz.GetLength (0); i++)
             {
-                if (CoiasUteis.NullCheck (matriz[i, 0], matriz[i, 1], matriz[i, 2])) break;
+                if (CoiasUteis.NullCheck (matriz[i, 0], matriz[i, 1], matriz[i, 2])) continue;
                 if (CoiasUteis.CheckVitoria (matriz[i, 0], matriz[i, 1], matriz[i, 2])) return true;
             }
             return false;
@@ -48,7 +48,7 @@ namespace BlazorApp1.Models.JogoDaVelha
         {
             for (int j = 0; j < matriz.GetLength (1); j++)
             {
-                if (CoiasUteis.NullCheck (matriz[0, j], matriz[1, j], matriz[2, j])) break;
+                if (CoiasUteis.NullCheck (matriz[0, j], matriz[1, j], matriz[2, j])) continue;
                 if (CoiasUteis.CheckVitoria (matriz[0, j], matriz[1, j], matriz[2, j])) return true;
             }
             return oJogoAcabou = false;
