@@ -10,22 +10,21 @@ namespace TrabalhoFinal.Models.JogoDaVelha
         public int Pontos_X { get; private set; }
         public int Pontos_O { get; private set; }
         public bool oJogoAcabou { get; private set; } = false;
-        // TODO: Pensar em um nome melhor
         public void MarcarOndeFoiClicado (int i, int j)
         {
-            Func<bool> PassarTurno = () => TurnoDo_X = TurnoDo_X is true ? false : true;
             if (Tabulairo[i, j] == "X" || Tabulairo[i, j] == "O") return;
-            switch (TurnoDo_X)
-            {
-                case true:
-                    Tabulairo[i, j] = "X";
-                    PassarTurno ();
-                    break;
+            Func<bool> PassarTurno = () => TurnoDo_X = TurnoDo_X is true ? false : true;
+            Action<string> MarcarNoTabuleiro = simbolo => Tabulairo[i, j] = simbolo;
 
-                case false:
-                    Tabulairo[i, j] = "O";
-                    PassarTurno ();
-                    break;
+            if (TurnoDo_X)
+            {
+                MarcarNoTabuleiro ("X");
+                PassarTurno ();
+            }
+            else
+            {
+                MarcarNoTabuleiro ("O");
+                PassarTurno ();
             }
         }
         public void ResetJogo ()
@@ -42,10 +41,10 @@ namespace TrabalhoFinal.Models.JogoDaVelha
         }
         public void VerificarVitoria ()
         {
-            if (VerificarLinha (this.Tabulairo)) Placar();
-            if (VerificarColuna (this.Tabulairo)) Placar() ;
-            if (VerificarDiagonalPrincipal (this.Tabulairo)) Placar() ;
-            if (VerificarDiagonalSecundaria (this.Tabulairo)) Placar() ;
+            if (VerificarLinha (this.Tabulairo)) Placar ();
+            if (VerificarColuna (this.Tabulairo)) Placar ();
+            if (VerificarDiagonalPrincipal (this.Tabulairo)) Placar ();
+            if (VerificarDiagonalSecundaria (this.Tabulairo)) Placar ();
         }
         public void Placar ()
         {
