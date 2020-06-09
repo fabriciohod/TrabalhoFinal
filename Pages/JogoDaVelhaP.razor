@@ -4,15 +4,15 @@
 <body>
   <main>
       <div class="Tabuleiro">
-        <div class="Quadrado" @onclick="e =>GameManager(0,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,0]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(0,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,1]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(0,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,2]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(1,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,0]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(1,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,1]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(1,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,2]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(2,0)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,0]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(2,1)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,1]</h3></div>
-        <div class="Quadrado" @onclick="e =>GameManager(2,2)"><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,2]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(0,0)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(0,1)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(0,2)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[0,2]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,0)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,1)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(1,2)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[1,2]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,0)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,0]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,1)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,1]</h3></div>
+        <div class="Quadrado" @onclick="e =>GameManager(2,2)" ><h3 class="Simbolo">@jogoDaVelha.Tabulairo[2,2]</h3></div>
       </div>
     @if(jogoDaVelha.oJogoAcabou)
     {
@@ -20,13 +20,26 @@
       else AlertBox("O jogador O ganhou");
     } 
     <h3 style="text-align: center; font-size: 2rem">Turno do: @(jogoDaVelha.TurnoDo_X is true ? "X" : "O") </h3>
+    <div class="Placar">
+      <div>
+        <h3>X: @jogoDaVelha.Pontos_X</h3>
+      </div>
+      <div>
+        <button class="Reset" @onclick="jogoDaVelha.ResetJogo">Reset</button>
+      </div>
+      <div>
+        <h3>O: @jogoDaVelha.Pontos_O</h3>
+      </div>
+      
+    </div>
+    
   </main>
 </body>
   
 
 @code
 {
-  string alerta;
+      string alerta;
       private JogoDaVelha jogoDaVelha = new JogoDaVelha();
       private void GameManager(int linha, int coluna)
       {

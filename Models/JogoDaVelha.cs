@@ -6,8 +6,9 @@ namespace TrabalhoFinal.Models.JogoDaVelha
     public class JogoDaVelha
     {
         public string[, ] Tabulairo { get; private set; } = new string[3, 3];
-        private List<bool> resultados = new List<bool> (4);
         public bool TurnoDo_X { get; private set; } = true;
+        public int Pontos_X { get; private set; }
+        public int Pontos_O { get; private set; }
         public bool oJogoAcabou { get; private set; } = false;
         // TODO: Pensar em um nome melhor
         public void MarcarOndeFoiClicado (int i, int j)
@@ -27,13 +28,31 @@ namespace TrabalhoFinal.Models.JogoDaVelha
                     break;
             }
         }
+        public void ResetJogo ()
+        {
+            TurnoDo_X = true;
+            oJogoAcabou = false;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Tabulairo[i, j] = "";
+                }
+            }
+        }
         public void VerificarVitoria ()
         {
-            resultados.Add (VerificarLinha (this.Tabulairo));
-            resultados.Add (VerificarColuna (this.Tabulairo));
-            resultados.Add (VerificarDiagonalPrincipal (this.Tabulairo));
-            resultados.Add (VerificarDiagonalSecundaria (this.Tabulairo));
-            if (resultados.Contains (true)) oJogoAcabou = true;
+            if (VerificarLinha (this.Tabulairo)) Placar();
+            if (VerificarColuna (this.Tabulairo)) Placar() ;
+            if (VerificarDiagonalPrincipal (this.Tabulairo)) Placar() ;
+            if (VerificarDiagonalSecundaria (this.Tabulairo)) Placar() ;
+        }
+        public void Placar ()
+        {
+            oJogoAcabou = true;
+            if (!TurnoDo_X) Pontos_X += 1;
+            else Pontos_O += 1;
+
         }
         private bool VerificarLinha (string[, ] matriz)
         {
