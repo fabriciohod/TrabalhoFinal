@@ -1,53 +1,52 @@
-.Tabuleiro{
-    width: 30rem;
-    height: 30rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
+.Tabuleiro {
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
-.Quadrado{
-    width: 10rem;
-    height: 10rem;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: 180ms ease-in;
+.Quadrado {
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 180ms ease-in;
 }
 .Simbolo {
-    text-align: center;
-    font-weight: 300;
-    font-size: 3rem;
-    margin: 3rem;
-    transition: 140ms ease-in;
+  text-align: center;
+  font-weight: 300;
+  font-size: 3rem;
+  margin: 3rem;
+  transition: 140ms ease-in;
 }
-.Tabuleiro :hover{
-    color: white;
-    background-color: blueviolet;
+.Tabuleiro :hover {
+  color: white;
+  background-color: #d7d7ff;
 }
-.Placar{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.Placar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.Placar div{
-    text-align: center;
-    border-radius: 8px;
+.Placar div {
+  text-align: center;
+  border-radius: 8px;
 }
-.Reset{
-    width: 100px;
-    height: 50px;
-    border-radius: 8px;
-    background-color: #23232e;
-    color: #df4adf;
-    
+.Reset {
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #23232e;
+  color: #df4adf;
 }
-.Reset:hover{
-    transition: 150ms;
-    background-color: #df4adf;
-    color: #23232e;
+.Reset:hover {
+  transition: 150ms;
+  background-color: #df4adf;
+  color: #23232e;
 }
-p{
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    text-align: center;
+p {
+  font-size: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
