@@ -1,0 +1,28 @@
+.ImagemForca img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    height: 20rem;
+}
+.PalavraSecreta{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 3rem;
+}
+.jogo input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 7rem; 
+}
+.SeletorDeDificuldade{
+   margin-top: 10px;
+   width: 1290px;
+   text-align: center;
+}
+p{
+    text-align: center;
+}

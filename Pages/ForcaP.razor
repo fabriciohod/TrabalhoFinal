@@ -1,27 +1,28 @@
 @page "/Forca"
 @using TrabalhoFinal.models.forca;
+<head><link rel="stylesheet" href="css/forca.css"></head>
 <main>
-    <body @onkeyup="e => VerificarInputEvent(e)">    
-        <div class ="ImagemForca">
+    <body class="body" @onkeyup="e => VerificarInputEvent(e)">
+        <div class="jogo">
+            <div class ="ImagemForca">
             <img src="@forca.BonecoDaForca[forca.IndexDoBoneco]">
+            </div>
+            <div class="PalavraSecreta">
+                @if (forca.Dica != null)
+                {
+                    foreach (var item in forca.Dica){ <span>@item</span> }
+                }
+            </div>
+            <input type="char" @bind="input"  >
+            <div class="SeletorDeDificuldade">
+                <label>Selecione um tema</label>
+                    <select @bind="tema">
+                        <option value='comida' @onclick="e => forca.EscolherTema(tema)">comida</option>
+                        <option value='jogos' @onclick="e => forca.EscolherTema(tema)">jogos</option>
+                    </select>
+            </div>
+            <p>@forca.TextoDeFimDejogo</p>
         </div>
-        <input type="char" @bind="input"  >
-
-         <div class="SeletorDeDificuldade">
-            <label>Selecione um tema</label>
-                 <select @bind="tema">
-                    <option value='comida' @onclick="e => forca.EscolherTema(tema)">comida</option>
-                    <option value='jogos' @onclick="e => forca.EscolherTema(tema)">jogos</option>
-                </select>
-        </div>
-        
-        <div class="PalavraSecreta">
-        @if (forca.Dica != null)
-        {
-            foreach (var item in forca.Dica){ <span>@item</span> }
-        }
-        </div>
-        <p>@forca.TextoDeFimDejogo</p>
     </body>
 </main>
 
