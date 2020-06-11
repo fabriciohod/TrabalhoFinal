@@ -1,6 +1,7 @@
 @page "/AdivinheSePoder"
 @using TrabalhoFinal.Models.AdivinheSePoder
 @using Microsoft.AspNetCore.Components.Web
+@using TrabalhoFinal.Components
 @using System.Linq
 <main>
     <head><link rel="stylesheet" href="css/AdivinheSepoder.css"></head>
@@ -59,9 +60,10 @@
                 <label>Numero de tentativas: </label>
                 <span>@adivinheSePoder.Tentativas</span>
             </div>
-
+            
         </body>
     </div>
+    <ResetBtn/>
 </main>
 @code{
     private AdivinheSePoder adivinheSePoder = new AdivinheSePoder();

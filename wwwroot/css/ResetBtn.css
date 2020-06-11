@@ -4,6 +4,9 @@
   border-radius: 8px;
   background-color: #23232e;
   color: #df4adf;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .Reset:hover {
   transition: 150ms;

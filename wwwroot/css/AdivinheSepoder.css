@@ -1,6 +1,9 @@
 :root {
   font-family: "Cuprum", sans-serif;
 }
+#inputTextBox {
+  max-width: 300px;
+}
 .ContadorDeTentativas {
   text-align: center;
 }
@@ -38,4 +41,7 @@
   color: #d7d7ff;
   cursor: pointer;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Botao {
+  margin-left: 20px;
 }
