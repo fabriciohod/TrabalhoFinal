@@ -7,7 +7,7 @@
 }
 body {
   color: rgb(31, 0, 51);
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   margin: 0px;
   padding: 0px;
 }
@@ -18,7 +18,7 @@ main {
 }
 .NavBar {
   font-family: "Bungee", cursive;
-  font-family: "Metal Mania", cursive;
+  font-size: 15px;
   width: 5rem;
   height: 100vh;
   position: fixed;
