@@ -32,18 +32,7 @@
   text-align: center;
   border-radius: 8px;
 }
-.Reset {
-  width: 100px;
-  height: 50px;
-  border-radius: 8px;
-  background-color: #23232e;
-  color: #df4adf;
-}
-.Reset:hover {
-  transition: 150ms;
-  background-color: #df4adf;
-  color: #23232e;
-}
+
 p {
   font-size: 18px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

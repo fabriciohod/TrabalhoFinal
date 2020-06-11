@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using TrabalhoFinal.Scripts;
 
@@ -16,7 +15,6 @@ namespace TrabalhoFinal.models.forca
         public string TextoDeFimDejogo { get; private set; } = "";
         public bool oJogoAcabou { get; private set; } = false;
         public int IndexDoBoneco { get; private set; } = 0;
-
         public void EscolherTema (string tema)
         {
             switch (tema)

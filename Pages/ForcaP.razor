@@ -1,6 +1,10 @@
 @page "/Forca"
-@using TrabalhoFinal.models.forca;
-<head><link rel="stylesheet" href="css/forca.css"></head>
+@using TrabalhoFinal.Components
+@using TrabalhoFinal.models.forca
+<head>
+    <link rel="stylesheet" href="css/forca.css">
+    <link rel="stylesheet" href="css/ResetBtn.css">
+</head>
 <main>
     <body class="body" @onkeyup="e => VerificarInputEvent(e)">
         <div class="jogo">
@@ -22,6 +26,7 @@
                     </select>
             </div>
             <p>@forca.TextoDeFimDejogo</p>
+            <ResetBtn/>
         </div>
     </body>
 </main>
@@ -38,4 +43,5 @@
             forca.VerificarFimDeJogo();
         });
     }
+
 }

@@ -1,0 +1,14 @@
+@namespace TrabalhoFinal.Components
+<head><link rel="stylesheet" href="css/ResetBtn.css"></head>
+<main>
+    <body>
+        <button class="Reset" @onclick="Reset">Reset</button>
+    </body>
+</main>
+
+@code{
+    async Task Reset()
+    {
+        await JSruntime.InvokeVoidAsync("Reset");
+    }
+}
