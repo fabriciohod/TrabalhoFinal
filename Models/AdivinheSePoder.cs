@@ -6,7 +6,7 @@ namespace TrabalhoFinal.Models.AdivinheSePoder
     {
         public char[] Senha { get; private set; }
         public string Resulatado { get; private set; }
-        public int Tentativas { get; set; } = 4;
+        public int Tentativas { get; private set; } = 4;
         private Random _rnd = new Random ();
         public void VerificarSenha (string input)
         {

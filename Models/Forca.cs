@@ -12,7 +12,7 @@ namespace TrabalhoFinal.models.forca
         private readonly string[] _temaComida = { "arroz", "feijão", "alface", "tomate", "carne" };
         public char[] Dica { get; private set; }
         public string PalavraSecreta { get; private set; }
-        public List<char> LetrasErradas { get; private set; }
+        public string LetrasErradas { get; private set; }
         public string TextoDeFimDejogo { get; private set; } = "";
         public bool oJogoAcabou { get; private set; } = false;
         public int IndexDoBoneco { get; private set; } = 0;
@@ -24,10 +24,12 @@ namespace TrabalhoFinal.models.forca
                 case "comida":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaComida);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
+                    TextoDeFimDejogo = "";
                     break;
                 case "jogos":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaJogos);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
+                    TextoDeFimDejogo = "";
                     break;
                 default:
                     return;
@@ -35,6 +37,11 @@ namespace TrabalhoFinal.models.forca
         }
         public void VerificarFimDeJogo ()
         {
+            if (Dica == null)
+            {
+                TextoDeFimDejogo = "Selecione um tema";
+                return;
+            }
             if (!(Dica.Contains ('*')))
             {
                 TextoDeFimDejogo = "Voce acertou, Parabens 🥳";
@@ -49,27 +56,21 @@ namespace TrabalhoFinal.models.forca
         }
         public void VerificarResposta (char input)
         {
-            try
+            if (input == '\0') return;
+            char[] palavraSecreta = PalavraSecreta.ToCharArray ();
+            if (PalavraSecreta.Contains (input))
             {
-                char[] palavraSecreta = PalavraSecreta.ToCharArray ();
-                if (PalavraSecreta.Contains (input))
+                for (int i = 0; i < Dica.Length; i++)
                 {
-                    for (int i = 0; i < Dica.Length; i++)
-                    {
-                        if (palavraSecreta[i] == input) Dica[i] = input;
-                        else continue;
-                    }
+                    if (palavraSecreta[i] == input) Dica[i] = input;
+                    else continue;
+                }
 
-                }
-                else
-                {
-                    MudarBoneco ();
-                    LetrasErradas.Add (input);
-                }
             }
-            catch (Exception)
+            else
             {
-                return;
+                MudarBoneco ();
+                LetrasErradas += $" {input}";
             }
 
         }
