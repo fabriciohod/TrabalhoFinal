@@ -23,14 +23,17 @@ namespace TrabalhoFinal.models.forca
                 case "comida":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaComida);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
+                    TextoDeFimDejogo = "";
                     break;
                 case "jogos":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaJogos);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
+                    TextoDeFimDejogo = "";
                     break;
                 case "programacao":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaProgramacao);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
+                    TextoDeFimDejogo = "";
                     break;
                 default:
                     return;
