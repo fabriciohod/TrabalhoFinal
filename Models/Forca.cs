@@ -63,8 +63,8 @@ namespace TrabalhoFinal.models.forca
             {
                 for (int i = 0; i < Dica.Length; i++)
                 {
+                    if (char.IsWhiteSpace (palavraSecreta[i])) Dica[i] = ' ';
                     if (palavraSecreta[i] == input) Dica[i] = input;
-                    else continue;
                 }
 
             }
