@@ -9,7 +9,7 @@ namespace TrabalhoFinal.models.forca
         public string[] BonecoDaForca { get; } = { "./image/base.png", "./image/cabeça.png", "./image/corpo.png", "./image/braçoD.png", "./image/braçoE.png", "./image/pernaD.png", "./image/pernaE.png" };
         private readonly string[] _temaJogos = { "zelda", "doom", "valorant", "minecraft", "counter-strike", "star fox" };
         private readonly string[] _temaComida = { "arroz", "feijão", "alface", "tomate", "carne" };
-        private readonly string[] _temaProgramacao = { "algoritmo", "variavel", "metodo", " Encapsulamento", "Polimorfismo", "herança" };
+        private readonly string[] _temaProgramacao = { "polimorfismo", "herança", "encapsulamento", "classe", "C#" };
         public char[] Dica { get; private set; }
         public string PalavraSecreta { get; private set; }
         public string LetrasErradas { get; private set; }
@@ -66,7 +66,10 @@ namespace TrabalhoFinal.models.forca
             {
                 for (int i = 0; i < Dica.Length; i++)
                 {
+<<<<<<< HEAD
                     if (char.IsWhiteSpace(palavraSecreta[i])) Dica[i] = ' ';
+=======
+>>>>>>> e694acba89d8edbf677f7684523400abc23da7e7
                     if (palavraSecreta[i] == input) Dica[i] = input;
                 }
 
