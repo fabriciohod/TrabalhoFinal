@@ -9,6 +9,7 @@ namespace TrabalhoFinal.models.forca
         public string[] BonecoDaForca { get; } = { "./image/base.png", "./image/cabeça.png", "./image/corpo.png", "./image/braçoD.png", "./image/braçoE.png", "./image/pernaD.png", "./image/pernaE.png" };
         private readonly string[] _temaJogos = { "zelda", "doom", "valorant", "minecraft", "counter-strike", "star fox" };
         private readonly string[] _temaComida = { "arroz", "feijão", "alface", "tomate", "carne" };
+        private readonly string[] _temaProgramacao = { " " };
         public char[] Dica { get; private set; }
         public string PalavraSecreta { get; private set; }
         public string LetrasErradas { get; private set; }
@@ -22,12 +23,14 @@ namespace TrabalhoFinal.models.forca
                 case "comida":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaComida);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
-                    TextoDeFimDejogo = "";
                     break;
                 case "jogos":
                     PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaJogos);
                     Dica = CoiasUteis.CodificarString (PalavraSecreta);
-                    TextoDeFimDejogo = "";
+                    break;
+                case "programacao":
+                    PalavraSecreta = CoiasUteis.PegarUmValorNoArray (_temaProgramacao);
+                    Dica = CoiasUteis.CodificarString (PalavraSecreta);
                     break;
                 default:
                     return;
