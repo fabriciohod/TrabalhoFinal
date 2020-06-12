@@ -53,7 +53,7 @@ namespace TrabalhoFinal.models.forca
             }
             if (BonecoDaForca[IndexDoBoneco] == BonecoDaForca[6])
             {
-                TextoDeFimDejogo = "Voce caiu do borco, Boa sorte na proxima 😢";
+                TextoDeFimDejogo = "Voce caiu do barco, Boa sorte na proxima 😢";
                 oJogoAcabou = true;
             }
             return;
