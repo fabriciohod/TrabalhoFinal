@@ -53,7 +53,7 @@ namespace TrabalhoFinal.models.forca
             }
             if (BonecoDaForca[IndexDoBoneco] == BonecoDaForca[6])
             {
-                TextoDeFimDejogo = "Voce perdeu, Boa sorte na proxima 😢";
+                TextoDeFimDejogo = "Voce caiu do borco, Boa sorte na proxima 😢";
                 oJogoAcabou = true;
             }
             return;
@@ -66,20 +66,14 @@ namespace TrabalhoFinal.models.forca
             {
                 for (int i = 0; i < Dica.Length; i++)
                 {
-<<<<<<< HEAD
-                    if (char.IsWhiteSpace(palavraSecreta[i])) Dica[i] = ' ';
-=======
->>>>>>> e694acba89d8edbf677f7684523400abc23da7e7
                     if (palavraSecreta[i] == input) Dica[i] = input;
                 }
-
             }
             else
             {
                 MudarBoneco();
                 LetrasErradas += $" {input}";
             }
-
         }
         private int MudarBoneco() => IndexDoBoneco <= 5 ? IndexDoBoneco++ : IndexDoBoneco;
     }
