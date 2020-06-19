@@ -4,7 +4,10 @@
 @using TrabalhoFinal.Components
 @using System.Linq
 <main>
-    <head><link rel="stylesheet" href="css/AdivinheSepoder.css"></head>
+    <head>
+        <link rel="stylesheet" href="css/AdivinheSepoder.css">
+        <link rel="stylesheet" href="css/ResetBtn.css">
+    </head>
     <div class="AdivinheSePoder"@onkeyup="(e) => VerificarSenha(e)">
         <body>
             <p class="TextoResultado">@(adivinheSePoder.Tentativas <= 0 ? "Acabou as suas tentativas 😭, boa sorte na proxima vez" : adivinheSePoder.Resulatado)</p>
